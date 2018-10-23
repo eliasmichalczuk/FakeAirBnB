@@ -22,5 +22,5 @@ public class Quarto {
 	@Column(name="numero", nullable=false)
 	private int numero;
 	@Column(name="descricao", nullable=false)
-	private String descicao;
+	private String descricao;
 }

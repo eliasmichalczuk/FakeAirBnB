@@ -9,6 +9,7 @@ import udesc.poo.entity.Quarto;
 public interface QuartoRepo extends JpaRepository<Quarto, Long>{
 
 	List<Quarto> findByRua(String rua);
+	List<Quarto> findAll();
 	List<Quarto> findByDescricao(String descricao);
 	Quarto findById(long id);
 }
