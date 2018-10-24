@@ -1,3 +1,3 @@
 # FakeAirBnB
-Small aplication based on AirBnB's model of business <br/>
-Applying DDD, CQRS and event sourcing
+Small Spring aplication based on AirBnB's model of business <br/>
+Applying CQRS and event sourcing
