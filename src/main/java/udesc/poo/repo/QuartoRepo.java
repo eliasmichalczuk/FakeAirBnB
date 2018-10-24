@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import udesc.poo.entity.Quarto;
+import udesc.poo.domain.entity.Quarto;
 
 public interface QuartoRepo extends JpaRepository<Quarto, Long>{
 
