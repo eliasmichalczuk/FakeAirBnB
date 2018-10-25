@@ -24,15 +24,10 @@ public class QuartoCommandController {
 		this.quartoRepo = quartoRepo;
 	}
 	
-	@RequestMapping(value="/quarto/{quarto}", method = RequestMethod.POST)
+	@RequestMapping(value="/quarto/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public String postQuarto(@RequestBody Quarto quarto) {
 		quartoRepo.save(quarto);
 		return null;
-	}
-	
-	@DeleteMapping("/quarto/{id}")
-	void deleteQuarto(@PathVariable Long id){
-		quartoRepo.deleteById(id);
 	}
 }
