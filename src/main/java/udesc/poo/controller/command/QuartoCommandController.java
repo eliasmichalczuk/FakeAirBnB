@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import udesc.poo.domain.entity.Quarto;
+import udesc.poo.rent.domain.entity.Quarto;
 import udesc.poo.repo.QuartoRepo;
 
 @RestController

@@ -1,12 +1,13 @@
-package udesc.poo.domain.entity;
+package udesc.poo.rent.domain.entity;
 
 import java.util.ArrayList;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.axonframework.commandhandling.model.AggregateIdentifier;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -20,6 +21,6 @@ public class Moradia {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	@Column(name="dono", nullable=false)
+	@AggregateIdentifier
 	private ArrayList<Quarto> quartos;
 }

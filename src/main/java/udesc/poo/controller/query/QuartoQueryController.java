@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import udesc.poo.domain.entity.Quarto;
+import udesc.poo.rent.domain.entity.Quarto;
 import udesc.poo.repo.QuartoRepo;
 
 @Controller
