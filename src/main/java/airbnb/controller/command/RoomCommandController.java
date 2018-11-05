@@ -12,15 +12,11 @@ import airbnb.domain.base.Room;
 import airbnb.repo.RoomRepo;
 
 @RestController
-@RequestMapping("/quarto/")
+@RequestMapping("api/quarto/")
 public class RoomCommandController {
-
-	private RoomRepo roomRepo;
 	
 	@Autowired
-	public RoomCommandController(RoomRepo roomRepo) {
-		this.roomRepo = roomRepo;
-	}
+	private RoomRepo roomRepo;
 	
 	@RequestMapping(value="/quarto/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)

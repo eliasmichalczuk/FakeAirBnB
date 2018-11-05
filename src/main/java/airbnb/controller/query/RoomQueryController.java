@@ -15,24 +15,20 @@ import airbnb.domain.base.Room;
 import airbnb.repo.RoomRepo;
 
 @Controller
-@RequestMapping("/quarto/")
+@RequestMapping("api/quarto/")
 public class RoomQueryController {
 
+	@Autowired
 	private RoomRepo roomRepo;
 	
-	@Autowired
-	public RoomQueryController(RoomRepo roomRepo) {
-		this.roomRepo = roomRepo;
-	}
-	
-	@RequestMapping(value="/quarto/{}", method = RequestMethod.GET)
+	@RequestMapping(value="/{}", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Room> findAll(@PathVariable("quarto") String quarto, Model model) {
 		List<Room> listaQ = roomRepo.findAll();
 		return listaQ;
 	}
 	
-	@RequestMapping(value="/quarto/{rua}", method = RequestMethod.GET)
+	@RequestMapping(value="/{rua}", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Room> findQuartoByRua(@PathVariable("quarto") String quarto, Model model) {
 		List<Room> listaQ = roomRepo.findByStreet(quarto);
@@ -41,7 +37,7 @@ public class RoomQueryController {
 		return listaQ;
 	}
 	
-	@GetMapping("/quarto/{id}")
+	@GetMapping("/{id}")
 	@ResponseBody
 	public Room findQuartoById(@PathVariable("quarto") long id) {
 		return roomRepo.findById(id);
