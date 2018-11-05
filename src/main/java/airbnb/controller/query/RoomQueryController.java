@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import airbnb.rent.domain.entity.Room;
+import airbnb.domain.base.Room;
 import airbnb.repo.RoomRepo;
 
 @Controller
@@ -35,7 +35,7 @@ public class RoomQueryController {
 	@RequestMapping(value="/quarto/{rua}", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Room> findQuartoByRua(@PathVariable("quarto") String quarto, Model model) {
-		List<Room> listaQ = roomRepo.findByRua(quarto);
+		List<Room> listaQ = roomRepo.findByStreet(quarto);
 		if 	(listaQ != null)
 			model.addAttribute("quartos",listaQ);
 		return listaQ;

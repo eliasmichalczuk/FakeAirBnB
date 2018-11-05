@@ -1,4 +1,4 @@
-package airbnb.rent.domain.entity;
+package airbnb.domain.base;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.axonframework.commandhandling.model.AggregateIdentifier;
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,10 +20,11 @@ import lombok.Setter;
 @Getter
 @Setter (AccessLevel.PRIVATE)
 @Table(name = "avaliacao")
-public class Review {
+public class Review{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@AggregateIdentifier
 	private long id;
 	@Column(name="descricao", nullable=false)
 	private String description;

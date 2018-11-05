@@ -1,4 +1,4 @@
-package airbnb.rent.domain.entity;
+package airbnb.domain.base;
 
 import java.util.List;
 
@@ -21,8 +21,12 @@ public class Room {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
+	@Column(name="street", nullable=false)
 	private String street;
+	@Column(name="number", nullable=false)
 	private int number;
+	@Column(name="description", nullable=false)
 	private String description;
+	@Column(name="reviews", nullable=false)
 	private List<Review> reviews;
 }

@@ -1,4 +1,4 @@
-package airbnb.rent.commands;
+package airbnb.hosting.commands;
 
 import org.axonframework.commandhandling.TargetAggregateIdentifier;
 

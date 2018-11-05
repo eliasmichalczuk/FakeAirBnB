@@ -1,4 +1,4 @@
-package airbnb.rent.events;
+package airbnb.hosting.events;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

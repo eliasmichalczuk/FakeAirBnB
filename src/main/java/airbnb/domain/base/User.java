@@ -1,4 +1,4 @@
-package airbnb.rent.domain.entity;
+package airbnb.domain.base;
 
 import java.util.List;
 

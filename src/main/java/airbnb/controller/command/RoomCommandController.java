@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import airbnb.rent.domain.entity.Room;
+import airbnb.domain.base.Room;
 import airbnb.repo.RoomRepo;
 
 @RestController
 @RequestMapping("/quarto/")
-public class QuartoCommandController {
+public class RoomCommandController {
 
 	private RoomRepo roomRepo;
 	
 	@Autowired
-	public QuartoCommandController(RoomRepo roomRepo) {
+	public RoomCommandController(RoomRepo roomRepo) {
 		this.roomRepo = roomRepo;
 	}
 	
