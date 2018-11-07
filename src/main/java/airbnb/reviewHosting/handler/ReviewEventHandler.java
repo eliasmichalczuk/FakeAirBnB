@@ -2,6 +2,7 @@ package airbnb.reviewHosting.handler;
 
 import org.axonframework.eventhandling.EventHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.event.EventListener;
 
 import airbnb.domain.base.Review;
 import airbnb.repo.ReviewCommandRepo;
@@ -14,6 +15,6 @@ public class ReviewEventHandler {
 	
 	@EventHandler
 	public void on(RoomReviewedEvent event) {
-		reviewRepo.save(new Review(event.Id, event.Description))
+		reviewRepo.save(new Review(event.Id, event.description, ));
 	}
 }

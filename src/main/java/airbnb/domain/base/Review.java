@@ -26,15 +26,13 @@ public class Review{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@AggregateIdentifier
 	private long id;
-	@Column(name="descricao", nullable=false)
+	@Column(name="description", nullable=false)
 	private String description;
 //	@Column(name="usuario", nullable=false)
-	@ManyToOne
-	@JoinColumn(name="usuario_id", table="usuario")
+	@JoinColumn(name="user_id", table="User", nullable=false)
 	private User user;
-	@Column(name="estrelas", nullable=false)
+	@Column(name="star", nullable=false)
 	private int stars;
-	@OneToOne
-	@JoinColumn(name="quarto_id", table="quarto")
+	@JoinColumn(name="room_id", table="Room", nullable=false)
 	private Room room;
 }

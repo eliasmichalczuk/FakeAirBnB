@@ -23,5 +23,5 @@ public class Owner {
 	@Column(name="telefone", nullable=false)
 	private String phoneNumber;
 	@Column(name="moradia", nullable=false)
-	private Moradia dwellig;
+	private House dwellig;
 }
