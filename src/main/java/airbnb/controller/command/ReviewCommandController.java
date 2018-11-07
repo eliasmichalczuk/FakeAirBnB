@@ -18,13 +18,12 @@ import airbnb.reviewHosting.commands.ReviewCommand;
 public class ReviewCommandController {
 
 	@Autowired
-	private ReviewCommandRepo reviewRepo;
 	private CommandGateway commandGateway;
 	
 	@PostMapping
 	public CompletableFuture<String> create(@RequestBody ReviewDto dto){
-		return commandGateway.send(new ReviewCommand(dto))
+		return commandGateway.send(new ReviewCommand(dto.id, dto.description, dto.userId,
+				dto.stars, dto.roomId));
 	}
-	
 }
 
