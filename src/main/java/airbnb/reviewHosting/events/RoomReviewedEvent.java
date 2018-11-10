@@ -12,9 +12,9 @@ import lombok.ToString;
 public class RoomReviewedEvent {
 
 	@TargetAggregateIdentifier
-	public final long Id;
-	public final int userId;
-	public final int roomId;
+	public final long id;
+	public final User user;
+	public final Room room;
 	public final String description;
 	public final int stars;
 }

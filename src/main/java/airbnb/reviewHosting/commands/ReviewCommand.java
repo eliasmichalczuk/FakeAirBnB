@@ -2,6 +2,8 @@ package airbnb.reviewHosting.commands;
 
 import org.axonframework.commandhandling.TargetAggregateIdentifier;
 
+import airbnb.domain.base.Room;
+import airbnb.domain.base.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
@@ -12,9 +14,9 @@ import lombok.ToString;
 public class ReviewCommand {
 
 	@TargetAggregateIdentifier
-	public final long Id;
+	public final int id;
+	public final User user;
+	public final Room room;
 	public final String description;
-	public final int userId;
-	public final int star;
-	public final int roomId;	
+	public final int stars;	
 }

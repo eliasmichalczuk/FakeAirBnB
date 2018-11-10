@@ -1,12 +1,13 @@
 package airbnb.domain.base;
 
-import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import lombok.AccessLevel;
@@ -21,7 +22,7 @@ public class House {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	@OneToMany
-	@Column(name="rooms", nullable=false)
-	private ArrayList<Room> quartos;
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "room")
+	private List<Room> rooms;
 }

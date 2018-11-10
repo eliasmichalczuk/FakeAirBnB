@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import airbnb.domain.base.Room;
+import airbnb.domain.base.User;
 import airbnb.repo.ReviewCommandRepo;
 import airbnb.reviewHosting.ReviewDto;
 import airbnb.reviewHosting.commands.ReviewCommand;
@@ -22,8 +24,8 @@ public class ReviewCommandController {
 	
 	@PostMapping
 	public CompletableFuture<String> create(@RequestBody ReviewDto dto){
-		return commandGateway.send(new ReviewCommand(dto.id, dto.description, dto.userId,
-				dto.stars, dto.roomId));
+		return commandGateway.send(new ReviewCommand(dto.id, dto.user, dto.room, dto.description, dto.stars
+				));
 	}
 }
 
