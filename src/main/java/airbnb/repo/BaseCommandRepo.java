@@ -1,10 +1,12 @@
 package airbnb.repo;
 
-import javax.persistence.Entity;
+import java.io.Serializable;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.NoRepositoryBean;
 
-public interface BaseCommandRepo extends JpaRepository<Entity, Long>{
+@NoRepositoryBean
+public interface BaseCommandRepo <T, ID extends Serializable> extends JpaRepository <T, ID>{
 
 	
 }

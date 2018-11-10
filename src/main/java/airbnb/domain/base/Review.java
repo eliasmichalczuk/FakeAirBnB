@@ -1,9 +1,6 @@
 package airbnb.domain.base;
 
-import java.util.List;
-
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,8 +32,5 @@ public class Review{
 	private Room room;
 	@Column(name="description", nullable=false)
 	private String description;
-	@Column(name="stars", nullable=false)
-	@ElementCollection(targetClass=Integer.class)
-	private List<Integer> stars;
-	
+
 }

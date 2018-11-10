@@ -4,6 +4,7 @@ import org.axonframework.commandhandling.TargetAggregateIdentifier;
 
 import airbnb.domain.base.Room;
 import airbnb.domain.base.User;
+import airbnb.repo.StarsEnum;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 
@@ -16,5 +17,5 @@ public class RoomReviewedEvent {
 	public final User user;
 	public final Room room;
 	public final String description;
-	public final int stars;
+	/*public final StarsEnum stars;*/
 }
