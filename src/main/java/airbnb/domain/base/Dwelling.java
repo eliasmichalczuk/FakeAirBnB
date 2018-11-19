@@ -9,20 +9,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
+@Entity(name = "Dwelling")
+@Table(name = "dwelling")
 @Getter
-@Setter (AccessLevel.PRIVATE)
-public class House {
+public class Dwelling {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private int id;
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "room")
+	@Setter
 	private List<Room> rooms;
+	
 }

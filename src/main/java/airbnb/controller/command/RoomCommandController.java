@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import airbnb.domain.base.Room;
-import airbnb.repo.RoomRepo;
+import airbnb.repo.IRoomRepo;
 
 @RestController
-@RequestMapping("api/quarto/")
+@RequestMapping("api/room")
 public class RoomCommandController {
 	
 	@Autowired
-	private RoomRepo roomRepo;
+	private IRoomRepo roomRepo;
 	
-	@RequestMapping(value="/quarto/", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public String postQuarto(@RequestBody Room quarto) {
 		roomRepo.save(quarto);

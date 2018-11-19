@@ -1,21 +1,22 @@
-package airbnb.reviewHosting.events;
+package airbnb.reviewHosting.commands;
 
 import org.axonframework.commandhandling.TargetAggregateIdentifier;
 
 import airbnb.domain.base.Room;
 import airbnb.domain.base.User;
-import airbnb.repo.StarsEnum;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.ToString;
 
+@Getter
 @ToString
 @AllArgsConstructor
-public class RoomReviewedEvent {
+public class CreateReviewCommand {
 
 	@TargetAggregateIdentifier
-	public final long id;
-	public final User user;
+	public final int id;
+	public final User user;	
 	public final Room room;
 	public final String description;
-	/*public final StarsEnum stars;*/
+	public final int stars;
 }

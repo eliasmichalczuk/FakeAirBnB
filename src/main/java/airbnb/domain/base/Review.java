@@ -1,36 +1,46 @@
 package airbnb.domain.base;
 
+import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-import org.axonframework.commandhandling.model.AggregateIdentifier;
-
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @AllArgsConstructor
 @Entity
 @Getter
-@Setter (AccessLevel.PRIVATE)
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode(of = { "id" })
 public class Review{
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@AggregateIdentifier
-	private long id;
+	private UUID id;
 //	@Column(name="usuario", nullable=false)
-	@JoinColumn(name="user_id", table="User", nullable=false)
+//	@JoinColumn(name="user_id", table="User", nullable=false)
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+	@Setter
 	private User user;
-	@Column(name="star", nullable=false)
-	@JoinColumn(name="room_id", table="Room", nullable=false)
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
+	@Setter
 	private Room room;
 	@Column(name="description", nullable=false)
+	@Setter
 	private String description;
+	@Column(name="stars", nullable=false)
+	@Setter
+	private int Stars;
 
 }

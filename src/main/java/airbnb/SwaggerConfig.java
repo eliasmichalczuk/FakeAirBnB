@@ -2,6 +2,8 @@ package airbnb;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.repository.NoRepositoryBean;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -11,6 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+@EnableJpaRepositories(basePackages = {"airbnb.repo", "airbnb.repoImplementation"})
 public class SwaggerConfig {                                    
     @Bean
     public Docket api() { 

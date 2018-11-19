@@ -3,37 +3,48 @@ package airbnb.reviewHosting.aggregates;
 import java.io.Serializable;
 
 import org.axonframework.commandhandling.CommandHandler;
+import org.axonframework.commandhandling.model.AggregateIdentifier;
 import org.axonframework.commandhandling.model.AggregateLifecycle;
-import org.axonframework.eventsourcing.EventSourcingHandler;
+import org.axonframework.spring.stereotype.Aggregate;
 
-import airbnb.domain.base.Review;
-import airbnb.domain.base.Room;
-import airbnb.domain.base.User;
-import airbnb.repo.StarsEnum;
-import airbnb.reviewHosting.commands.ReviewCommand;
-import airbnb.reviewHosting.events.RoomReviewedEvent;
+import airbnb.reviewHosting.commands.CreateReviewCommand;
+import airbnb.reviewHosting.commands.ModifyReviewDescriptionCommand;
+import airbnb.reviewHosting.commands.ModifyReviewStarsCommand;
+import airbnb.reviewHosting.events.ReviewCreatedEvent;
+import airbnb.reviewHosting.events.ReviewDescriptionModifiedEvent;
+import airbnb.reviewHosting.events.ReviewStarsModifiedEvent;
 
+@Aggregate
+public class ReviewAggregate  implements Serializable{
 
-public class ReviewAggregate extends Review implements Serializable{
+	@AggregateIdentifier
+	private String id;
 
-	public ReviewAggregate(long id, User user, Room room, String description, StarsEnum stars) {
-		super(id, user, room, description);
-	}
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
-	@CommandHandler
+	/*@CommandHandler
 	protected void on(ReviewCommand command) {
 		AggregateLifecycle.apply(new RoomReviewedEvent(super.getId(), super.getUser(),
 				super.getRoom(), super.getDescription()));
+	}*/
+	
+	ReviewAggregate(){
 	}
 	
-	@EventSourcingHandler
-	protected void on(RoomReviewedEvent event) {
-		AggregateLifecycle.markDeleted();
+	@CommandHandler
+	public ReviewAggregate(CreateReviewCommand command) {
+		AggregateLifecycle.apply(new ReviewCreatedEvent(command.getUser(), command.getRoom(), 
+		command.getDescription(), command.getStars()));
+	}
+	
+	@CommandHandler
+	void on(ModifyReviewDescriptionCommand command) {
+		AggregateLifecycle.apply(new ReviewDescriptionModifiedEvent(command.getId(),command.getDescription()));
+	}
+	
+	@CommandHandler
+	void on(ModifyReviewStarsCommand command) {
+		AggregateLifecycle.apply(new ReviewStarsModifiedEvent(command.getId(),command.getStars()));
 	}
 	
 }
