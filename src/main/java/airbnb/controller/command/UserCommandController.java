@@ -1,5 +1,7 @@
 package airbnb.controller.command;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +19,7 @@ import airbnb.repo.IBaseCommandRepo;
 public class UserCommandController {
 	
 	@Autowired
-	private IBaseCommandRepo repo;
+	private IBaseCommandRepo<User, UUID> repo;
 
 	@PostMapping
 	public ResponseEntity<User> postUser(@RequestBody UserDto dto) {

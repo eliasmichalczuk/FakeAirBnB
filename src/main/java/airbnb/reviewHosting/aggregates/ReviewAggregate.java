@@ -1,6 +1,7 @@
 package airbnb.reviewHosting.aggregates;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.commandhandling.model.AggregateIdentifier;
@@ -18,7 +19,7 @@ import airbnb.reviewHosting.events.ReviewStarsModifiedEvent;
 public class ReviewAggregate  implements Serializable{
 
 	@AggregateIdentifier
-	private String id;
+	public final UUID Id = UUID.randomUUID();
 
 	private static final long serialVersionUID = 1L;
 	

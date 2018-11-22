@@ -4,6 +4,9 @@ import org.axonframework.commandhandling.model.AggregateIdentifier;
 import org.axonframework.commandhandling.model.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
 
+import airbnb.hosting.commands.StartHostingCommand;
+import airbnb.hosting.events.HostingStartedEvent;
+
 @Aggregate
 public class HostingAggregate {
 
@@ -21,7 +24,7 @@ public class HostingAggregate {
 	}*/
 	
 	public HostingAggregate(StartHostingCommand command) {
-		AggregateLifecycle.apply(new HostingStartedEvent())
+		AggregateLifecycle.apply(new HostingStartedEvent(command.dto));
 	}
 	//hostingInprogresCommand
 	//FinishHostingCommand
