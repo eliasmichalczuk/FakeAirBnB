@@ -8,6 +8,7 @@ import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Component;
 
 import airbnb.domain.base.Review;
+import airbnb.repo.IBaseQueryRepo;
 import airbnb.repo.IReviewCommandRepo;
 import airbnb.repo.IReviewQueryRepo;
 import airbnb.reviewHosting.events.ReviewCreatedEvent;
@@ -19,13 +20,16 @@ public class ReviewEventHandler {
 	
 	private IReviewCommandRepo reviewCommandRepo;
 	private IReviewQueryRepo reviewQueryRepo;
+	private IBaseQueryRepo<Review, UUID> repo;
 	
 	@Autowired
-	public ReviewEventHandler(IReviewCommandRepo reviewCommandRepo, IReviewQueryRepo reviewQueryRepo) {
+	public ReviewEventHandler(IReviewCommandRepo reviewCommandRepo, IReviewQueryRepo reviewQueryRepo,
+			IBaseQueryRepo repo) {
+		super();
 		this.reviewCommandRepo = reviewCommandRepo;
 		this.reviewQueryRepo = reviewQueryRepo;
+		this.repo = repo;
 	}
-	
 	
 	/*@EventSourcingHandler
 	protected void on(RoomReviewedEvent event) {
@@ -40,9 +44,9 @@ public class ReviewEventHandler {
 	
 	@EventHandler
 	public void on(ReviewStarsModifiedEvent event) {
-		Review review = reviewQueryRepo.findOne(event.getReview());
+		/*Optional<Review> review = repo.findById(event.getReview());
 		review.setStars(event.getStars());
-		reviewCommandRepo.save(review);
+		reviewCommandRepo.save(review);*/
 	}
 	
 	@EventHandler

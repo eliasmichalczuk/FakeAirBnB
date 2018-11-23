@@ -1,13 +1,15 @@
 package airbnb.repo;
 
-import java.io.Serializable;
+import java.util.UUID;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import airbnb.domain.base.User;
+
 @Repository
 @Transactional
-public interface IBaseCommandRepo <T, ID extends Serializable> extends CrudRepository <T, ID>{
+public interface IUserCommandRepo extends CrudRepository<User, UUID>{
 
 }

@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import airbnb.domain.base.User;
 import airbnb.hosting.dto.UserDto;
-import airbnb.repo.IBaseCommandRepo;
+import airbnb.repo.IUserCommandRepo;
 
 @RestController
 @RequestMapping("api/user")
 public class UserCommandController {
 	
 	@Autowired
-	private IBaseCommandRepo<User, UUID> repo;
+	private IUserCommandRepo repo;
 
 	@PostMapping
 	public ResponseEntity<User> postUser(@RequestBody UserDto dto) {
