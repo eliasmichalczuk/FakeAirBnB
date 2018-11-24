@@ -6,8 +6,8 @@ import airbnb.hosting.enums.Status;
 import lombok.Value;
 
 @Value
-public class HostingStartedEvent {
+public class HostingEndedEvent {
 
 	public final UUID id;
-	public final Enum status = Status.STARTED; 
+	public final Enum status = Status.ENDED;
 }

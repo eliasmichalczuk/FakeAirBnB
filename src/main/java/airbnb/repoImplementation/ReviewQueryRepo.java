@@ -4,6 +4,8 @@ import java.awt.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import javax.persistence.TypedQuery;
+
 import org.springframework.stereotype.Component;
 
 import airbnb.domain.base.Review;
@@ -83,6 +85,23 @@ public class ReviewQueryRepo implements IReviewQueryRepo{
 	public List findAllByRoomId(long roomId) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void save(Optional<Review> review) {
+		Review nReview = review.orElse(null);
+		String em;
+		/*TypedQuery query = em.createQuery("insert into review (id, user_id, room_id, description, stars) "
+				+ "values(?,?,?,?,?)");
+		
+		query.setString(nReview.getId(),id);
+		query.setString(nReview.getUser(),user_id);
+		query.setString(nReview.getRoom(),room_id);
+		query.setString(nReview.getDescription(),description);
+		query.setString(nReview.getStars(),stars);
+		query.executeUpdate();*/
+		
+	
 	}
 
 }

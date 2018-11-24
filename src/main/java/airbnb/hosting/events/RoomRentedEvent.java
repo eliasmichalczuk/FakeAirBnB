@@ -1,5 +1,8 @@
 package airbnb.hosting.events;
 
+import java.util.UUID;
+
+import airbnb.hosting.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +12,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class RoomRentedEvent {
 
-	public long Id;
-	public long UserId;
-	public long RoomId;
+	public final UUID Id;
+	public final UUID roomId;
+	public final UUID userId;
+	public final Enum status = Status.RENTED;
 }

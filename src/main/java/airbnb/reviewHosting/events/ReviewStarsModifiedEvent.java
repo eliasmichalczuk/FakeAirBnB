@@ -10,6 +10,6 @@ import lombok.Value;
 public class ReviewStarsModifiedEvent {
 
 	@TargetAggregateIdentifier
-	private final UUID review;
+	private final UUID reviewId;
 	private final int stars;
 }

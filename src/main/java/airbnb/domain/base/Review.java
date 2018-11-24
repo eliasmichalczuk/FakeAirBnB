@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ import lombok.ToString;
 @Getter
 @NoArgsConstructor
 @ToString
+@Builder
 @EqualsAndHashCode(of = { "id" })
 public class Review{
 
@@ -33,7 +35,7 @@ public class Review{
 	@Setter
 	private User user;
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id")
+    @JoinColumn(name = "room_id")
 	@Setter
 	private Room room;
 	@Column(name="description", nullable=false)

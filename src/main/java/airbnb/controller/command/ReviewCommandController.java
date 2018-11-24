@@ -24,8 +24,8 @@ public class ReviewCommandController {
 	
 	@PostMapping
 	public CompletableFuture<String> create(@RequestBody ReviewDto dto){
-		return commandGateway.send(new CreateReviewCommand(dto.id, dto.user, 
-				dto.room, dto.description, 0));
+		return commandGateway.send(new CreateReviewCommand(dto.reviewId, dto.userId, 
+				dto.roomId, dto.description, dto.stars));
 	}
 }
 

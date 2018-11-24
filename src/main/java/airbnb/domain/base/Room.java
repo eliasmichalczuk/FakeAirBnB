@@ -37,4 +37,5 @@ public class Room {
 	    )
 	@Column(name="reviews", nullable=false)
 	private List<Review> reviews;
+	
 }

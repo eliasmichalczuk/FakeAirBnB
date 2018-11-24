@@ -10,6 +10,6 @@ import lombok.Value;
 public class ModifyReviewDescriptionCommand {
 
 	@TargetAggregateIdentifier
-	private final UUID id;
+	private final UUID reviewId;
 	private final String description;
 }

@@ -7,6 +7,6 @@ import lombok.Value;
 @Value
 public class HostingStartedDto {
 
-	public final UUID roomId;
+	public  final UUID roomId;
 	public final UUID userId;
 }

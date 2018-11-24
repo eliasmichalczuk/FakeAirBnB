@@ -1,9 +1,9 @@
 package airbnb.reviewHosting.commands;
 
+import java.util.UUID;
+
 import org.axonframework.commandhandling.TargetAggregateIdentifier;
 
-import airbnb.domain.base.Room;
-import airbnb.domain.base.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
@@ -14,9 +14,9 @@ import lombok.ToString;
 public class CreateReviewCommand {
 
 	@TargetAggregateIdentifier
-	public final int id;
-	public final User user;	
-	public final Room room;
+	public final UUID reviewId;
+	public final UUID userId;	
+	public final UUID roomId;
 	public final String description;
 	public final int stars;
 }

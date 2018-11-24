@@ -19,8 +19,9 @@ public AxonConfig(EventHandlingConfiguration eventHandlingConfiguration) {
 public void Configuration() {
 	
 }
+}
 
-@PostConstruct
+/*@PostConstruct
 public void registerErrorHandling() {
    eventHandlingConfiguration.configureListenerInvocationErrorHandler(configuration -> (exception, event, listener) -> {
        String msg = String.format(
@@ -28,4 +29,4 @@ public void registerErrorHandling() {
                event.getIdentifier());
        throw exception;
    });
-}}
+}}*/

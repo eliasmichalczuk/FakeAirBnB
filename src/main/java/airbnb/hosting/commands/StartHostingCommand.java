@@ -12,6 +12,5 @@ public class StartHostingCommand {
 
 	@TargetAggregateIdentifier
 	public final UUID Id = UUID.randomUUID();
-	public final HostingStartedDto dto;
 	
 }

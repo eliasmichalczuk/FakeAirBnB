@@ -1,15 +1,14 @@
-package airbnb.reviewHosting.commands;
+package airbnb.hosting.commands;
 
 import java.util.UUID;
 
 import org.axonframework.commandhandling.TargetAggregateIdentifier;
 
+import airbnb.hosting.dto.HostingStartedDto;
 import lombok.Value;
 
 @Value
-public class ModifyReviewStarsCommand {
-	
+public class EndHostingCommand {
 	@TargetAggregateIdentifier
-	private final UUID reviewId;
-	private final int stars;
+	public final UUID Id;
 }

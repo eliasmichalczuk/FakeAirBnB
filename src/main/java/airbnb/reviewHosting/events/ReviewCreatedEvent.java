@@ -1,14 +1,18 @@
 package airbnb.reviewHosting.events;
 
-import airbnb.domain.base.Room;
-import airbnb.domain.base.User;
+import java.util.UUID;
+
+import org.axonframework.commandhandling.TargetAggregateIdentifier;
+
 import lombok.Value;
 
 @Value
 public class ReviewCreatedEvent {
 
-	public final User user;
-	public final Room room;
+	@TargetAggregateIdentifier
+	private final UUID reviewId;
+	public final UUID userId;
+	public final UUID roomId;
 	public final String description;
 	public final int stars;
 }

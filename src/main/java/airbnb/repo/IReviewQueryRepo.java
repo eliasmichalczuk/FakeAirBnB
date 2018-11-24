@@ -7,6 +7,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.google.common.base.Optional;
+
 import airbnb.domain.base.Review;
 
 @Repository
@@ -14,4 +16,6 @@ import airbnb.domain.base.Review;
 public interface IReviewQueryRepo extends CrudRepository <Review, UUID>{
 
 	public List findAllByRoomId(long roomId);
+
+	public void save(java.util.Optional<Review> review);
 }
