@@ -41,7 +41,7 @@ public class HostingAggregate {
 	
 	@CommandHandler
 	void on(RentRoomCommand command) {
-		AggregateLifecycle.apply(new RoomRentedEvent(command.id, command.roomId, command.userId));
+		AggregateLifecycle.apply(new RoomRentedEvent(command.id, command.roomId, command.userId, command.ownerId));
 	}
 	
 	@CommandHandler

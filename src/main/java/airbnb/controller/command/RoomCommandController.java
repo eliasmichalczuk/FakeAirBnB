@@ -15,9 +15,14 @@ import airbnb.repo.IRoomRepo;
 @RequestMapping("api/room")
 public class RoomCommandController {
 	
-	@Autowired
-	private IRoomRepo roomRepo;
 	
+	private IRoomRepo roomRepo;
+	@Autowired
+	public RoomCommandController(IRoomRepo roomRepo) {
+		super();
+		this.roomRepo = roomRepo;
+	}
+
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public String postQuarto(@RequestBody Room quarto) {

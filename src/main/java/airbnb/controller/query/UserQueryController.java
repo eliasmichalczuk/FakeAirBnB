@@ -19,9 +19,14 @@ import airbnb.repo.IBaseQueryRepo;
 @RequestMapping("api/user")
 public class UserQueryController {
 
-	@Autowired
-	private IBaseQueryRepo<User, UUID> repo;
 	
+	private IBaseQueryRepo<User, UUID> repo;
+	@Autowired
+	public UserQueryController(IBaseQueryRepo<User, UUID> repo) {
+		super();
+		this.repo = repo;
+	}
+
 	@RequestMapping(value="/{userId}", method = RequestMethod.GET)
 	public Optional getUserById(@PathVariable UUID userId){
 		return repo.findById(userId);

@@ -31,7 +31,8 @@ public class HostingProjector {
 				.id(event.getId())
 				.roomId(event.roomId)
 				.userId(event.userId)
-				.status(event.RENTED)
+				.ownerId(event.ownerId)
+				.status(event.status)
 				.build();
 		commandRepo.save(hosting);
 	}
@@ -41,10 +42,10 @@ public class HostingProjector {
 	Hosting hosting = queryRepo.getOne(event.id);
 	Hosting nHosting = Hosting.builder()
 					.roomId(hosting.getRoomId())
-					.userId(hosting.getUserId())
-					.status(event.STARTED)
+					.ownerId(hosting.getOwnerId())
+					.status(event.status)
 					.build();
-	commandRepo.save(hosting);
+	commandRepo.save(nHosting);
 	}
 	
 	
@@ -55,8 +56,8 @@ public class HostingProjector {
 		Hosting nHosting = Hosting.builder()
 						.roomId(hosting.getRoomId())
 						.userId(hosting.getUserId())
-						.status(event.ENDED)
+						.status(event.status)
 						.build();
-		commandRepo.save(hosting);
+		commandRepo.save(nHosting);
 	}
 }

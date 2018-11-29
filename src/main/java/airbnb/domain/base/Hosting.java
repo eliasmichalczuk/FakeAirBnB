@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import org.springframework.stereotype.Component;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -26,7 +28,10 @@ public class Hosting {
 	@Id
 	private UUID id;	
 	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "owner_id")
+	@Setter
+	private UUID ownerId;
+	@JoinColumn(name = "user_id")
 	@Setter
 	private UUID userId;
 	@OneToOne(fetch = FetchType.LAZY)

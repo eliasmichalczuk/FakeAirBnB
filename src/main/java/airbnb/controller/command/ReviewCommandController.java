@@ -19,9 +19,14 @@ import airbnb.reviewHosting.commands.CreateReviewCommand;
 @RequestMapping("api/review")
 public class ReviewCommandController {
 
-	@Autowired
-	private CommandGateway commandGateway;
 	
+	private CommandGateway commandGateway;
+	@Autowired
+	public ReviewCommandController(CommandGateway commandGateway) {
+		super();
+		this.commandGateway = commandGateway;
+	}
+
 	@PostMapping
 	public CompletableFuture<String> create(@RequestBody ReviewDto dto){
 		return commandGateway.send(new CreateReviewCommand(dto.reviewId, dto.userId, 

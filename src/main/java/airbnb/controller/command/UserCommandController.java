@@ -18,8 +18,13 @@ import airbnb.repo.IUserCommandRepo;
 @RequestMapping("api/user")
 public class UserCommandController {
 	
-	@Autowired
+	
 	private IUserCommandRepo repo;
+	@Autowired
+	public UserCommandController(IUserCommandRepo repo) {
+		super();
+		this.repo = repo;
+	}
 
 	@PostMapping
 	public ResponseEntity<User> postUser(@RequestBody UserDto dto) {

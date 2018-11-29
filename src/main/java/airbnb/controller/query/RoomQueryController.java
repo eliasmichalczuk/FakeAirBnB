@@ -24,9 +24,14 @@ import airbnb.repo.IRoomRepo;
 @RequestMapping("api/room")
 public class RoomQueryController {
 
-	@Autowired
 	private IRoomRepo roomRepo;
 	
+	@Autowired
+	public RoomQueryController(IRoomRepo roomRepo) {
+		super();
+		this.roomRepo = roomRepo;
+	}
+
 	@RequestMapping(value="/{}", method = RequestMethod.GET)
 	@ResponseBody
 	@ResponseStatus(HttpStatus.OK)

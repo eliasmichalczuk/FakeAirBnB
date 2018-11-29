@@ -15,5 +15,6 @@ public class RoomRentedEvent {
 	public final UUID Id;
 	public final UUID roomId;
 	public final UUID userId;
+	public final UUID ownerId;
 	public final Enum status = Status.RENTED;
 }

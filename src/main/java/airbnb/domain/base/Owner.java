@@ -11,6 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +19,7 @@ import lombok.Setter;
 @Table(name = "owner")
 @Getter
 @Setter (AccessLevel.PRIVATE)
+@Builder
 public class Owner {
 
 	@Id
@@ -30,4 +32,6 @@ public class Owner {
 	@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dwellling_id")
 	private Dwelling dwellig;
+	@Column(name="email", nullable=false)
+	private String email;
 }

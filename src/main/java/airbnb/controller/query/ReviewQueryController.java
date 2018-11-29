@@ -20,7 +20,12 @@ public class ReviewQueryController {
 
 	@Autowired
 	private IReviewQueryRepo repo;
-	@Autowired
+	public ReviewQueryController(IReviewQueryRepo repo, IBaseQueryRepo<Review, UUID> baseRepo) {
+		super();
+		this.repo = repo;
+		this.baseRepo = baseRepo;
+	}
+
 	private IBaseQueryRepo<Review, UUID> baseRepo;
 
 	

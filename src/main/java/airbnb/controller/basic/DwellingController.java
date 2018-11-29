@@ -4,7 +4,6 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,22 +16,17 @@ import airbnb.repo.IBaseCommandRepo;
 import airbnb.repo.IBaseQueryRepo;
 
 @RestController
-@RequestMapping("api/owner")
-public class OwnerController {
-
+@RequestMapping("api/dwelling")
+public class DwellingController {
+	
 	private IBaseCommandRepo<Owner, UUID> commandRepo;
 	private IBaseQueryRepo<Owner, UUID> queryRepo;
 	private IBaseQueryRepo<User, UUID> userQueryRepo;
-
-	@Autowired
-	public OwnerController(IBaseCommandRepo<Owner, UUID> commandRepo, IBaseQueryRepo<Owner, UUID> queryRepo,
-			IBaseQueryRepo<User, UUID> userQueryRepo) {
-		this.commandRepo = commandRepo;
-		this.queryRepo = queryRepo;
-		this.userQueryRepo = userQueryRepo;
-	}
+	private IBaseCommandRepo<Owner, UUID> dwellingCommandRepo;
+	private IBaseQueryRepo<Owner, UUID> dwellingQueryRepo;
 	
-	@RequestMapping(value="/{userId}", method = RequestMethod.POST)
+	
+	@RequestMapping(value="/{ownerId}", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.OK)
 	public void create(@PathVariable UUID userId) {
 		User user = userQueryRepo.getOne(userId);
@@ -42,6 +36,7 @@ public class OwnerController {
 				.name(user.getName())
 				.email(user.getName())
 				.build();
-		commandRepo.save(owner);
+		
+		dwellingCommandRepo.save(owner);
 	}
 }

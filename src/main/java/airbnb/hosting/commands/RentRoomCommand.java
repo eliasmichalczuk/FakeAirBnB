@@ -17,6 +17,7 @@ public class RentRoomCommand {
 	@TargetAggregateIdentifier
 	public final UUID id;
 	public final UUID roomId;
+	public final UUID ownerId;
 	public final UUID userId;
 	public final Enum RENTED;
 	
